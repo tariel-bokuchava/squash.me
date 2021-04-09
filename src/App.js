@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { LoginForm } from './LoginForm/LoginForm.component';
+import { Component } from 'react';
+import './DebugFunctions/DebugFunctions'
+import debugLog from './DebugFunctions/DebugFunctions';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+  
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isSignedIn: 0
+    };
+  }
+
+  seSignedInState = (isSignedIn) => {
+    debugLog("ChangeLoggedState called: isSignedIn = " + isSignedIn);
+    this.setState({isSignedIn: isSignedIn})
+  }
+
+  render () {
+    return ( this.state.isSignedIn ? 
+              <h1>Congratulations! You are logged in!</h1> : 
+              <LoginForm seSignedInState={this.seSignedInState}/>);
+  }
+  }
 
 export default App;
