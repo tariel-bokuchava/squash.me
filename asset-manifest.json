@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/squash.me/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/squash.me/static/js/main.cda4d645.chunk.js",
-    "main.js.map": "/squash.me/static/js/main.cda4d645.chunk.js.map",
-    "runtime-main.js": "/squash.me/static/js/runtime-main.e372d6f7.js",
-    "runtime-main.js.map": "/squash.me/static/js/runtime-main.e372d6f7.js.map",
-    "static/js/2.67d91b33.chunk.js": "/squash.me/static/js/2.67d91b33.chunk.js",
-    "static/js/2.67d91b33.chunk.js.map": "/squash.me/static/js/2.67d91b33.chunk.js.map",
-    "static/js/3.5e5a96ad.chunk.js": "/squash.me/static/js/3.5e5a96ad.chunk.js",
-    "static/js/3.5e5a96ad.chunk.js.map": "/squash.me/static/js/3.5e5a96ad.chunk.js.map",
+    "main.css": "/squash.me/static/css/main.75fe940b.chunk.css",
+    "main.js": "/squash.me/static/js/main.2fc47331.chunk.js",
+    "main.js.map": "/squash.me/static/js/main.2fc47331.chunk.js.map",
+    "runtime-main.js": "/squash.me/static/js/runtime-main.6cf2170f.js",
+    "runtime-main.js.map": "/squash.me/static/js/runtime-main.6cf2170f.js.map",
+    "static/css/2.a5497ee8.chunk.css": "/squash.me/static/css/2.a5497ee8.chunk.css",
+    "static/js/2.b0c2a4e3.chunk.js": "/squash.me/static/js/2.b0c2a4e3.chunk.js",
+    "static/js/2.b0c2a4e3.chunk.js.map": "/squash.me/static/js/2.b0c2a4e3.chunk.js.map",
+    "static/js/3.88d99d21.chunk.js": "/squash.me/static/js/3.88d99d21.chunk.js",
+    "static/js/3.88d99d21.chunk.js.map": "/squash.me/static/js/3.88d99d21.chunk.js.map",
     "index.html": "/squash.me/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/squash.me/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.67d91b33.chunk.js.LICENSE.txt": "/squash.me/static/js/2.67d91b33.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/squash.me/static/media/logo.6ce24c58.svg"
+    "static/css/2.a5497ee8.chunk.css.map": "/squash.me/static/css/2.a5497ee8.chunk.css.map",
+    "static/css/main.75fe940b.chunk.css.map": "/squash.me/static/css/main.75fe940b.chunk.css.map",
+    "static/js/2.b0c2a4e3.chunk.js.LICENSE.txt": "/squash.me/static/js/2.b0c2a4e3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e372d6f7.js",
-    "static/js/2.67d91b33.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.cda4d645.chunk.js"
+    "static/js/runtime-main.6cf2170f.js",
+    "static/css/2.a5497ee8.chunk.css",
+    "static/js/2.b0c2a4e3.chunk.js",
+    "static/css/main.75fe940b.chunk.css",
+    "static/js/main.2fc47331.chunk.js"
   ]
 }
