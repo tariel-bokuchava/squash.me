@@ -1,8 +1,8 @@
-import '../App.css';
-import '../DebugFunctions/DebugFunctions'
+//import './LoginForm.styles.scss';
+
 import React, { Component } from 'react';
 import { Row, Col, Form, Input, Button, Checkbox } from 'antd';
-import debugLog from '../DebugFunctions/DebugFunctions';
+import debugLog from '../../includes/DebugFunctions/DebugFunctions';
 
 export class LoginForm extends Component {
     
@@ -21,7 +21,7 @@ export class LoginForm extends Component {
         debugLog('Password = ' + values.password);
         debugLog('Check result = ' + (values.username !== this.state.cUserName ?  0 : (values.password !== this.state.cPassword ? 0 : 1)));
         
-        this.props.seSignedInState(values.username !== this.state.cUserName ?  0 : (values.password !== this.state.cPassword ? 0 : 1))
+        this.props.setSignedInState(values.username !== this.state.cUserName ?  0 : (values.password !== this.state.cPassword ? 0 : 1))
     }
 
     render () {

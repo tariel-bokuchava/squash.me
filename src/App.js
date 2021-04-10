@@ -1,8 +1,9 @@
 import './App.css';
-import { LoginForm } from './LoginForm/LoginForm.component';
+import WelcomePage from './pages/WelcomePage/WelcomePage';
+import HomePage from './pages/HomePage/HomePage';
 import { Component } from 'react';
-import './DebugFunctions/DebugFunctions'
-import debugLog from './DebugFunctions/DebugFunctions';
+import './includes/DebugFunctions/DebugFunctions'
+import debugLog from './includes/DebugFunctions/DebugFunctions';
 
 
   
@@ -11,19 +12,22 @@ class App extends Component {
     super();
 
     this.state = {
-      isSignedIn: 0
+      isSignedIn: 1
     };
   }
 
-  seSignedInState = (isSignedIn) => {
+  setSignedInState = (isSignedIn) => {
     debugLog("ChangeLoggedState called: isSignedIn = " + isSignedIn);
     this.setState({isSignedIn: isSignedIn})
   }
 
   render () {
-    return ( this.state.isSignedIn ? 
-              <h1>Congratulations! You are logged in!</h1> : 
-              <LoginForm seSignedInState={this.seSignedInState}/>);
+    return (    this.state.isSignedIn 
+                  ? 
+                <HomePage setSignedInState={this.setSignedInState}/>
+                  :
+                <WelcomePage setSignedInState={this.setSignedInState}/>
+    );
   }
   }
 
