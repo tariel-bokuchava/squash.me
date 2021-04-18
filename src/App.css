@@ -1,2 +1,9 @@
 @import '~antd/dist/antd.css';
 
+body, html {
+    height: 100%;
+  }
+  
+.main-div {
+  width: 75%;
+}

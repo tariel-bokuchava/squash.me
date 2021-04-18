@@ -1,0 +1,16 @@
+body, html {
+    height: 100%;
+  }
+  
+.sectionOne {
+    display: flex;
+    align-self: center;
+    background-image: url('https://squashmad.com/wp-content/uploads/2018/04/Tarek-Momen-Mathieu-Castagnet-Squash.jpg');
+    background-position: center;
+    background-size:cover;
+    background-color: #184d47;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+

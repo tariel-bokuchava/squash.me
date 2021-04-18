@@ -4,7 +4,9 @@ import HomePage from './pages/HomePage/HomePage';
 import { Component } from 'react';
 import './includes/DebugFunctions/DebugFunctions'
 import debugLog from './includes/DebugFunctions/DebugFunctions';
-
+import Header from './components/Header/Header.component';
+import { Switch, Route } from 'react-router-dom';
+import { auth, firestore, createOrReadUserDoc } from './includes/Firebase/firebase-auth-utils';
 
   
 class App extends Component {
@@ -12,21 +14,51 @@ class App extends Component {
     super();
 
     this.state = {
-      isSignedIn: 1
+      currentUser: null
     };
   }
 
-  setSignedInState = (isSignedIn) => {
-    debugLog("ChangeLoggedState called: isSignedIn = " + isSignedIn);
-    this.setState({isSignedIn: isSignedIn})
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+        if(!user) {
+          this.setState({currentUser: null});
+          return;
+        }
+
+        createOrReadUserDoc(user).then((doc) => {
+          this.setState({currentUser: doc.data()});
+          console.log('user is read');
+        });
+        
+      })
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
   render () {
-    return (    this.state.isSignedIn 
-                  ? 
-                <HomePage setSignedInState={this.setSignedInState}/>
-                  :
-                <WelcomePage setSignedInState={this.setSignedInState}/>
+    console.log('render');
+    console.log(this.state.currentUser);
+    return (<div className='main-div'>    
+                <Header currentUser={this.state.currentUser}/>
+                <Switch>
+                  <Route exact path='/'>
+                      <HomePage/>
+                  </Route>
+                  <Route path='/signin'>
+                    <WelcomePage />
+                  </Route>
+                  <Route path='/players'>
+                    Players
+                  </Route>
+                  <Route path='/matches'>
+                    Matches
+                  </Route>
+                </Switch>
+            </div>
     );
   }
   }
