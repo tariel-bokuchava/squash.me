@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../includes/Firebase/firebase-auth-utils';
 import UserPhoto from '../UserPhoto/UserPhoto.component';
 
+const debug = require('debug');
+
 const SignOutButton = ({ currentUser }) => {
-  console.log(currentUser);
+  debug(currentUser);
   return currentUser != null ? (
     <div>
       <UserPhoto

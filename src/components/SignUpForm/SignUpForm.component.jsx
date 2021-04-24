@@ -7,6 +7,8 @@ import PasswordInput from '../UIElements/PasswordInput/PasswordInput.component';
 
 import { auth } from '../../includes/Firebase/firebase-auth-utils';
 
+const debug = require('debug');
+
 export default class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
@@ -30,8 +32,8 @@ export default class SignUpForm extends React.Component {
     auth
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((userCredential) => {
-        console.log(this.state.userName);
-        console.log(userCredential);
+        debug(this.state.userName);
+        debug(userCredential);
         userCredential.user.updateProfile({
           displayName: this.state.userName,
           photoURL: '',
@@ -40,6 +42,7 @@ export default class SignUpForm extends React.Component {
   };
 
   render() {
+    const { userName, email, newPassword, repeatPassword } = this.state;
     return (
       <div>
         <div className='signup-form' style={{ width: '800px' }}>
@@ -47,25 +50,25 @@ export default class SignUpForm extends React.Component {
           <TextInput
             id='userName'
             defaultText='UserName'
-            valueText={this.state.userName}
+            valueText={userName}
             handleChange={this.handleTextInput}
           />
           <TextInput
             id='email'
             defaultText='Email'
-            valueText={this.state.email}
+            valueText={email}
             handleChange={this.handleTextInput}
           />
           <PasswordInput
             id='newPassword'
             defaultText='Password'
-            valueText={this.state.newPassword}
+            valueText={newPassword}
             handleChange={this.handleTextInput}
           />
           <PasswordInput
             id='repeatPassword'
             defaultText='Repeat Password'
-            valueText={this.state.repeatPassword}
+            valueText={repeatPassword}
             handleChange={this.handleTextInput}
           />
           <CustomButton value='Sign Up' onClick={this.signUpWithEmail}>

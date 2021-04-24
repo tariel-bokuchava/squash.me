@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import MatchesTable from '../../components/MatchesTable/MatchesTable.component';
 import debugLog from '../../includes/DebugFunctions/DebugFunctions';
 
+const debug = require('debug');
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -23,14 +25,15 @@ class HomePage extends React.Component {
   };
 
   handleTextInputt = (e) => {
-    console.log(e);
+    debug(e);
     this.setState({ [e.target.id]: e.target.value });
   };
 
   render() {
+    const { currentUser } = this.state;
     return (
       <div className='home-page'>
-        <MatchesTable currentUser={this.state.currentUser} />
+        <MatchesTable currentUser={currentUser} />
       </div>
     );
   }

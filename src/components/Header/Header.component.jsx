@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom';
 import SignOutButton from '../SignOutButton/SignOutButton.component';
 
 // import { ReactComponent as SquashBall } from '../../assets/squash_ball.svg';
+const debug = require('debug');
 
 const Header = ({ currentUser }) => {
-  console.log('Header');
-  console.log(currentUser);
+  debug('Header');
+  debug(currentUser);
   return (
     <div className='header'>
       <div className='logo-container'>

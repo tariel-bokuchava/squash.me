@@ -2,6 +2,8 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
+const debug = require('debug');
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDYIzXbn2hamea5vMH035UH5hhyFRk9DYI',
   authDomain: 'squash-me.firebaseapp.com',
@@ -28,7 +30,7 @@ export const createOrReadUserDoc = async (user) => {
       email: user.email,
       photoURL: user.photoURL,
     });
-    console.log('Document successfully written!');
+    debug('Document successfully written!');
     // return await userRecord.get();
     return userRecord.get();
   }
@@ -47,7 +49,7 @@ const signInWithGoogle = () =>
       // The signed-in user info.
       // const { user } = result;
       // ...
-      console.log(token);
+      debug(token);
     })
     .catch((error) => {
       // Handle Errors here.
@@ -58,7 +60,7 @@ const signInWithGoogle = () =>
       // The firebase.auth.AuthCredential type that was used.
       // const { credential } = error;
       // ...
-      console.log(errorCode);
+      debug(errorCode);
     });
 
 export default signInWithGoogle;

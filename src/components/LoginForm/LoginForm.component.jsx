@@ -30,19 +30,20 @@ export default class LoginForm extends Component {
   };
 
   render() {
+    const { userName, password } = this.state;
     return (
       <div className='login-form' style={{ width: '800px' }}>
         <p className='header-text'>I already have an account:</p>
         <TextInput
           id='username'
           defaultText='Email or UserName'
-          valueText={this.state.username}
+          valueText={userName}
           handleChange={this.handleTextInput}
         />
         <PasswordInput
           id='password'
           defaultText='Password'
-          valueText={this.state.password}
+          valueText={password}
           handleChange={this.handleTextInput}
         />
         <CustomButton value='Sign in' onClick={this.signInWithEmailAndPassword}>

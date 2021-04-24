@@ -41,6 +41,7 @@ export default class MatchesTable extends React.Component {
   }
 
   render() {
+    const { challengesList } = this.state;
     return (
       <table className='matches-table'>
         <tr className='matches-table-header'>
@@ -50,7 +51,7 @@ export default class MatchesTable extends React.Component {
           <th className='matches-table-header'>Owner</th>
           <th className='matches-table-header'>Players</th>
         </tr>
-        {this.state.challengesList.map((challenge) => (
+        {challengesList.map((challenge) => (
           <tr className='matches-table-row'>
             <td>{challenge.date}</td>
             <td>{challenge.timeSlot}</td>

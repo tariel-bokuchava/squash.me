@@ -39,13 +39,14 @@ export default class MatchesBox extends React.Component {
   };
 
   render() {
+    const { matches, show } = this.state;
     return (
       <div>
         {
           {
             others: (
               <Collapse>
-                {this.state.matches.map((match) => (
+                {matches.map((match) => (
                   <Panel header={match.date} key={match.rating}>
                     <p>{match.players}</p>
                   </Panel>
@@ -53,11 +54,11 @@ export default class MatchesBox extends React.Component {
               </Collapse>
             ),
             mine: <h1>My Matches</h1>,
-          }[this.state.show]
+          }[show]
         }
         <Menu
           onClick={this.handleMenuClick}
-          selectedKeys={[this.state.show]}
+          selectedKeys={[show]}
           mode='horizontal'
         >
           <Menu.Item key='mine'>My Matches</Menu.Item>

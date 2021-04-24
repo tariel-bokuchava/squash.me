@@ -24,11 +24,12 @@ export default class PasswordInput extends React.Component {
   };
 
   render() {
+    const { showInput } = this.state;
     const { ...otherProps } = this.props;
     return (
       <div className='password-input'>
         <TextInput
-          type={this.state.showInput ? 'text' : 'password'}
+          type={showInput ? 'text' : 'password'}
           onMouseDown={this.toggleVisibilityOn}
           onMouseUp={this.toggleVisibilityOff}
           onMouseLeave={this.toggleVisibilityOff}
