@@ -20,8 +20,6 @@ class HomePage extends React.Component {
       `handleHeaderMenuClick called: selectedItem = ${selectedItem.key}`
     );
     // this.setState({ headerMenuCurrentItem: selectedItem.key });
-
-    if (selectedItem.key === 'logout') this.props.setSignedInState(0);
   };
 
   handleTextInputt = (e) => {
@@ -41,7 +39,6 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
   currentUser: PropTypes.string,
-  setSignedInState: PropTypes.func.isRequired,
 };
 
 HomePage.defaultProps = {

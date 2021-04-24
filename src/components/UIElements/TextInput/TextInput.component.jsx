@@ -29,8 +29,12 @@ const TextInput = ({
 TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  valueText: PropTypes.string.isRequired,
+  valueText: PropTypes.string,
   defaultText: PropTypes.string.isRequired,
+};
+
+TextInput.defaultProps = {
+  valueText: '',
 };
 
 export default TextInput;

@@ -11,7 +11,7 @@ const debug = require('debug');
 
 const Header = ({ currentUser }) => {
   debug('Header');
-  debug(currentUser);
+  // debug(currentUser);
   return (
     <div className='header'>
       <div className='logo-container'>
@@ -31,7 +31,11 @@ const Header = ({ currentUser }) => {
 };
 
 Header.propTypes = {
-  currentUser: PropTypes.object.isRequired,
+  currentUser: PropTypes.object,
+};
+
+Header.defaultProps = {
+  currentUser: null,
 };
 
 export default Header;

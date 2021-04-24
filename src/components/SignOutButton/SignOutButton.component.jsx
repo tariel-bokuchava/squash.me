@@ -9,7 +9,8 @@ import UserPhoto from '../UserPhoto/UserPhoto.component';
 const debug = require('debug');
 
 const SignOutButton = ({ currentUser }) => {
-  debug(currentUser);
+  debug('placeholder');
+  // debug(currentUser);
   return currentUser != null ? (
     <div>
       <UserPhoto

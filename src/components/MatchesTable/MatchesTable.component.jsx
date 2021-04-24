@@ -11,6 +11,7 @@ export default class MatchesTable extends React.Component {
       // currentUser: props.currentUser,
       challengesList: [
         {
+          id: 123234,
           owner: {
             userName: 'Tariel Bokuchava',
             email: 'tariel.bokuchava@gmail.com',
@@ -23,12 +24,14 @@ export default class MatchesTable extends React.Component {
           club: 'Multisport Luzhniki',
           participants: [
             {
+              id: 1221,
               userName: 'Andrey Budenny',
               email: 'andrey.budenny@gmail.com',
               photoURL: '',
               confirmed: 'Yes',
             },
             {
+              id: 123213,
               userName: 'Vladimir Terenin',
               email: 'vterenin@mail.ru',
               photoURL: '',
@@ -44,35 +47,40 @@ export default class MatchesTable extends React.Component {
     const { challengesList } = this.state;
     return (
       <table className='matches-table'>
-        <tr className='matches-table-header'>
-          <th className='matches-table-header'>Date</th>
-          <th className='matches-table-header'>Time</th>
-          <th className='matches-table-header'>Club</th>
-          <th className='matches-table-header'>Owner</th>
-          <th className='matches-table-header'>Players</th>
-        </tr>
-        {challengesList.map((challenge) => (
-          <tr className='matches-table-row'>
-            <td>{challenge.date}</td>
-            <td>{challenge.timeSlot}</td>
-            <td>{challenge.club}</td>
-            <td>
-              <UserPhoto
-                userName={challenge.owner.userName}
-                photoURL={challenge.owner.photoURL}
-              />
-              <span>{challenge.owner.userName}</span>
-            </td>
-            <td className='participants'>
-              {challenge.participants.map((participant) => (
-                <UserPhoto
-                  userName={participant.userName}
-                  photoURL={participant.photoURL}
-                />
-              ))}
-            </td>
+        <thead>
+          <tr className='matches-table-header'>
+            <th className='matches-table-header'>Date</th>
+            <th className='matches-table-header'>Time</th>
+            <th className='matches-table-header'>Club</th>
+            <th className='matches-table-header'>Owner</th>
+            <th className='matches-table-header'>Players</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {challengesList.map((challenge) => (
+            <tr key={challenge.id} className='matches-table-row'>
+              <td>{challenge.date}</td>
+              <td>{challenge.timeSlot}</td>
+              <td>{challenge.club}</td>
+              <td>
+                <UserPhoto
+                  userName={challenge.owner.userName}
+                  photoURL={challenge.owner.photoURL}
+                />
+                <span>{challenge.owner.userName}</span>
+              </td>
+              <td className='participants'>
+                {challenge.participants.map((participant) => (
+                  <UserPhoto
+                    key={participant.id}
+                    userName={participant.userName}
+                    photoURL={participant.photoURL}
+                  />
+                ))}
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     );
   }

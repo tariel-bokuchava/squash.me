@@ -13,6 +13,8 @@ import {
   createOrReadUserDoc,
 } from './includes/Firebase/firebase-auth-utils';
 
+const debug = require('debug');
+
 class App extends Component {
   unsubscribeFromAuth = null;
 
@@ -33,7 +35,7 @@ class App extends Component {
 
       createOrReadUserDoc(user).then((doc) => {
         this.setState({ currentUser: doc.data() });
-        console.log('user is read');
+        debug('user is read');
       });
     });
   }
@@ -43,13 +45,14 @@ class App extends Component {
   }
 
   render() {
-    console.log('render');
-    console.log(this.state.currentUser);
+    const { currentUser } = this.state;
+    debug('render');
+    // debug(currentUser);
     return (
       <div className='main-div'>
         <div className='main-left' />
         <div className='main-center'>
-          <Header currentUser={this.state.currentUser} />
+          <Header currentUser={currentUser} />
           <Switch>
             <Route exact path='/'>
               <HomePage />
