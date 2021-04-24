@@ -7,54 +7,72 @@ import { PasswordInput } from '../UIElements/PasswordInput/PasswordInput.compone
 
 import { auth } from '../../includes/Firebase/firebase-auth-utils';
 
-export class SignUpForm extends React.Component {
-    
-    constructor(props){
-        super(props);
+export default class SignUpForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            userName: '',
-            email: '',
-            newPassword: '',
-            repeatPassword: ''
-        }
-    }
+    this.state = {
+      userName: '',
+      email: '',
+      newPassword: '',
+      repeatPassword: '',
+    };
+  }
 
-    handleTextInput = (e) => {
-        this.setState({[e.target.id]: e.target.value});
-    }
+  handleTextInput = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
-    checkSignInData = (values) => {        
-        return values.password !== values.repeatPassword ? alert('Passwords do not match!') : 1;
-    }
+  checkSignInData = ({ password, repeatPassword }) =>
+    password !== repeatPassword ? alert('Passwords do not match!') : 1;
 
-    signUpWithEmail = (e) => {
-        auth.createUserWithEmailAndPassword(this.state.email, this.state.password).then((userCredential) => {
-            console.log(this.state.userName);
-            console.log(userCredential);
-            userCredential.user.updateProfile({
-                displayName: this.state.userName,
-                photoURL: ''
-              })
-        })
-    }
+  signUpWithEmail = () => {
+    auth
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then((userCredential) => {
+        console.log(this.state.userName);
+        console.log(userCredential);
+        userCredential.user.updateProfile({
+          displayName: this.state.userName,
+          photoURL: '',
+        });
+      });
+  };
 
-    render () {
-        return (<div>
-                <div className='signup-form' style={{width:'800px'}}>
-                    <p className='header-text'>I don't have an account yet:</p>
-                    <TextInput id='userName' defaultText='UserName' valueText={this.state.userName} handleChange={this.handleTextInput}/>
-                    <TextInput id='email' defaultText='Email' valueText={this.state.email} handleChange={this.handleTextInput}/>                
-                    <PasswordInput id='newPassword' defaultText='Password' valueText={this.state.newPassword} handleChange={this.handleTextInput}/>
-                    <PasswordInput id='repeatPassword' defaultText='Repeat Password' valueText={this.state.repeatPassword} handleChange={this.handleTextInput}/>
-                    <CustomButton 
-                        value='Sign Up' 
-                        onClick={this.signUpWithEmail}>
-                            Sign Up
-                    </CustomButton>               
-
-                </div>
-                </div>
-                )
-    }
+  render() {
+    return (
+      <div>
+        <div className='signup-form' style={{ width: '800px' }}>
+          <p className='header-text'>I don&apos;t have an account yet:</p>
+          <TextInput
+            id='userName'
+            defaultText='UserName'
+            valueText={this.state.userName}
+            handleChange={this.handleTextInput}
+          />
+          <TextInput
+            id='email'
+            defaultText='Email'
+            valueText={this.state.email}
+            handleChange={this.handleTextInput}
+          />
+          <PasswordInput
+            id='newPassword'
+            defaultText='Password'
+            valueText={this.state.newPassword}
+            handleChange={this.handleTextInput}
+          />
+          <PasswordInput
+            id='repeatPassword'
+            defaultText='Repeat Password'
+            valueText={this.state.repeatPassword}
+            handleChange={this.handleTextInput}
+          />
+          <CustomButton value='Sign Up' onClick={this.signUpWithEmail}>
+            Sign Up
+          </CustomButton>
+        </div>
+      </div>
+    );
+  }
 }
