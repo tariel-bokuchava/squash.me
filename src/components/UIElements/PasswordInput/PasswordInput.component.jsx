@@ -1,8 +1,8 @@
-import React from "react";
-import TextInput from "../TextInput/TextInput.component";
-import "./PasswordInput.styles.scss";
+import React from 'react';
+import TextInput from '../TextInput/TextInput.component';
+import './PasswordInput.styles.scss';
 
-export class PasswordInput extends React.Component {
+export default class PasswordInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,9 +26,9 @@ export class PasswordInput extends React.Component {
   render() {
     const { ...otherProps } = this.props;
     return (
-      <div className="password-input">
+      <div className='password-input'>
         <TextInput
-          type={this.state.showInput ? "text" : "password"}
+          type={this.state.showInput ? 'text' : 'password'}
           onMouseDown={this.toggleVisibilityOn}
           onMouseUp={this.toggleVisibilityOff}
           onMouseLeave={this.toggleVisibilityOff}

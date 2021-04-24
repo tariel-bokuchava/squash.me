@@ -3,7 +3,7 @@ import './SignUpForm.styles.scss';
 
 import CustomButton from '../CustomButton/CustomButton.component';
 import TextInput from '../UIElements/TextInput/TextInput.component';
-import { PasswordInput } from '../UIElements/PasswordInput/PasswordInput.component';
+import PasswordInput from '../UIElements/PasswordInput/PasswordInput.component';
 
 import { auth } from '../../includes/Firebase/firebase-auth-utils';
 

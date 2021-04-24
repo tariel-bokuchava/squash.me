@@ -1,6 +1,6 @@
 const debugEnabled = 1;
-const debugLog = (debugMessage) => {
-  return debugEnabled ? console.log(debugMessage) : "";
-};
+const debugLog = (debugMessage) => (
+ debugEnabled ? console.log(debugMessage) : ''
+);
 
 export default debugLog;

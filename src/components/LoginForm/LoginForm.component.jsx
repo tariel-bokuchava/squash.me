@@ -1,7 +1,7 @@
 import './LoginForm.styles.scss';
 
 import React, { Component } from 'react';
-import { PasswordInput } from '../UIElements/PasswordInput/PasswordInput.component';
+import PasswordInput from '../UIElements/PasswordInput/PasswordInput.component';
 import TextInput from '../UIElements/TextInput/TextInput.component';
 import CustomButton from '../CustomButton/CustomButton.component';
 
